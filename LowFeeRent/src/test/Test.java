@@ -1,9 +1,7 @@
 package test;
 
 import java.util.ArrayList;
-
 import com.github.javafaker.Faker;
-
 import model.BankAccount;
 import model.Person;
 
