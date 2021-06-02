@@ -1,5 +1,6 @@
 package model;
 
+import utils.Utils;
 import org.apache.commons.lang3.RandomStringUtils;
 
 public class Person {
@@ -16,7 +17,7 @@ public class Person {
 
 	public Person(String name, String surname, BankAccount bankAccount) {
 		super();
-		this.id = ge;
+		this.id = generateId();
 		this.name = name;
 		this.surname = surname;
 		this.bankAccount = bankAccount;
