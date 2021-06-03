@@ -2,34 +2,31 @@ package model;
 
 public class Lessor extends Person {
 
-	Apartment apartment;
+	String apartmentId;
 
 	public Lessor() {
 		super();
+		this.setId();
 	}
 
-	public Lessor(Apartment apartment) {
+	public Lessor(String apartmentId) {
 		super();
 		this.setId();
-		this.apartment = apartment;
+		this.apartmentId = apartmentId;
 	}
 
-//	public void setId(String id) {
-//		// TODO Auto-generated method stub
-//		this. = "u" + Utils.generateId();
-//	}
 
-	public Apartment getApartment() {
-		return apartment;
+	public String getApartmentId() {
+		return apartmentId;
 	}
 
-	public void setApartment(Apartment apartment) {
-		this.apartment = apartment;
+	public void setApartmentId(String apartmentId) {
+		this.apartmentId = apartmentId;
 	}
 
 	@Override
 	public String toString() {
-		return "Lessor [apartment:" + apartment + "]" + super.toString();
+		return "Lessor [apartmentId=" + apartmentId + "]" + super.toString();
 	}
 
 }

@@ -2,29 +2,29 @@ package model;
 
 public class Tenant extends Person {
 
-	Request requestForApartment;
+	String requestId;
 
 	public Tenant() {
 		super();
 		this.setId();
 	}
 
-	public Tenant(Request requestForApartment) {
+	public Tenant(String requestId) {
 		super();
 		this.setId();
-		this.requestForApartment = requestForApartment;
+		this.requestId = requestId;
 	}
 
-	public Request getRequestForApartment() {
-		return requestForApartment;
+	public String getRequestId() {
+		return requestId;
 	}
 
-	public void setRequestForApartment(Request requestForApartment) {
-		this.requestForApartment = requestForApartment;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
 	}
 
 	@Override
 	public String toString() {
-		return "Tenant [requestForApartment:" + requestForApartment + "]" + super.toString();
+		return "Tenant [requestId=" + requestId + "]" + super.toString();
 	}
 }

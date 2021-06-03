@@ -4,6 +4,7 @@ import utils.Utils;
 
 public class Apartment {
 	String id;
+	String personId;
 	int price;
 	int area;
 	int rooms;
@@ -23,10 +24,6 @@ public class Apartment {
 		this.bathrooms = bathrooms;
 		this.address = address;
 	}
-	
-	
-	
-	
 
 	public String getId() {
 		return id;
@@ -36,10 +33,18 @@ public class Apartment {
 		this.id = id;
 	}
 
+	public String getPersonId() {
+		return personId;
+	}
+
+	public void setPersonId(String personId) {
+		this.personId = personId;
+	}
+
 	@Override
 	public String toString() {
-		return "\nApartment [id=" + id + ", price=" + price + ", area=" + area + ", rooms=" + rooms + ", bathrooms="
-				+ bathrooms + ", address=" + address + "]";
+		return "Apartment [id=" + id + ", personId=" + personId + ", price=" + price + ", area=" + area + ", rooms="
+				+ rooms + ", bathrooms=" + bathrooms + ", address=" + address + "]";
 	}
 
 }

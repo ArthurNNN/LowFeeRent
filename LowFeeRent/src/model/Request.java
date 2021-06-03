@@ -4,6 +4,7 @@ import utils.Utils;
 
 public class Request {
 	String id;
+	String personId;
 	int priceMax;
 	Integer areaMin;
 	Integer roomsMin;
@@ -23,10 +24,26 @@ public class Request {
 		this.bathroomsMin = bathroomsMin;
 
 	}
+	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+	
+	public String getPersonId() {
+		return personId;
+	}
+
+	public void setPersonId(String personId) {
+		this.personId = personId;
+	}
 
 	@Override
 	public String toString() {
-		return "\nRequest [id=" + id + ", priceMax=" + priceMax + ", areaMin=" + areaMin + ", roomsMin=" + roomsMin
+		return "Request [id=" + id + ", priceMax=" + priceMax + ", areaMin=" + areaMin + ", roomsMin=" + roomsMin
 				+ ", bathroomsMin=" + bathroomsMin + "]";
 	}
 

@@ -1,12 +1,7 @@
 package repository;
 
 import java.util.HashMap;
-
-
-import model.Apartment;
-import model.Lessor;
-import model.Request;
-import model.Tenant;
+import model.*;
 
 public class AppDB {
 	private HashMap<String, Lessor> lessors;
@@ -14,17 +9,31 @@ public class AppDB {
 	private HashMap<String, Apartment> apartments;
 	private HashMap<String, Request> requests;
 
-	public String location;
-	public int size;
-		
+	public static String location;
+	public static int size;
+
 	public AppDB() {
 		super();
+		this.lessors = new HashMap<String, Lessor>();
+		this.tenants = new HashMap<String, Tenant>();
+		this.apartments = new HashMap<String, Apartment>();
+		this.requests = new HashMap<String, Request>();
 	}
 
-	public AppDB(HashMap<String, Apartment> apartments, HashMap<String, Request> requests) {
-		super();
-		this.apartments = apartments;
-		this.requests = requests;
+	public HashMap<String, Lessor> getLessors() {
+		return lessors;
+	}
+
+	public void setLessors(HashMap<String, Lessor> lessors) {
+		this.lessors = lessors;
+	}
+
+	public HashMap<String, Tenant> getTenants() {
+		return tenants;
+	}
+
+	public void setTenants(HashMap<String, Tenant> tenants) {
+		this.tenants = tenants;
 	}
 
 	public HashMap<String, Apartment> getApartments() {
@@ -43,21 +52,20 @@ public class AppDB {
 		this.requests = requests;
 	}
 
-	public String getLocation() {
+	public static String getLocation() {
 		return location;
 	}
 
-	public void setLocation(String location) {
-		this.location = location;
+	public static void setLocation(String location) {
+		AppDB.location = location;
 	}
 
-	public int getSize() {
+	public static int getSize() {
 		return size;
 	}
 
-	public void setSize(int size) {
-		this.size = size;
+	public static void setSize(int size) {
+		AppDB.size = size;
 	}
-	
-	
+
 }
