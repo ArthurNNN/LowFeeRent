@@ -34,4 +34,11 @@ public class Tenant extends Person {
 		return "Tenant [requestForApartment:" + requestForApartment + "]"+ super.toString();
 	}
 
+
+
+	public void setRequestForApartment(int i, Integer integer, Integer integer2, Integer integer3) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
