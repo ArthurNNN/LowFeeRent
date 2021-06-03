@@ -2,28 +2,54 @@ package test;
 
 import java.util.ArrayList;
 import com.github.javafaker.Faker;
+
+import model.Apartment;
 import model.BankAccount;
 import model.Person;
+import model.Request;
+import model.Tenant;
+import utils.Utils;
+import model.Lessor;
 
 public class Test {
-
 	public static void main(String[] args) {
-		int n = 0;
+		int n = 1;
 
-		System.out.println("Welcome to LowFeeRent!");
+		System.out.println("Welcome to LowFeeRent!\n");
 
 		Faker faker = new Faker();
 
-		ArrayList<Person> lessors = new ArrayList<Person>();
-		ArrayList<Person> tenants = new ArrayList<Person>();
-
-		while (n < 10) {
-			String name = faker.name().firstName();
-			String surname = faker.name().lastName();
-			String iban = faker.finance().iban();
-			lessors.add(new Person(name, surname, new BankAccount(iban, Math.random() * 1000)));
+		ArrayList<Lessor> lessors = new ArrayList<Lessor>();
+		System.out.println("---------------- Lessors: ----------------");
+		while (n <= 10) {
+			Lessor lessor = new Lessor(new Apartment(Utils.randAB(8, 25) * 100, Utils.randAB(10, 20) * 10, Utils.randAB(1, 5),
+					Utils.randAB(1, 3), faker.address().streetAddress(true)));
+			lessor.setName(faker.name().firstName());
+			lessor.setSurname(faker.name().lastName());
+			lessor.setBankAccount(new BankAccount(faker.finance().iban(), Utils.randAB(5, 55) * 100));
+			System.out.println("#" + n + " " + lessor);
+			System.out.println();
+			lessors.add(lessor);
+			n++;
 		}
 		
-		System.out.println(lessors);
+		n = 1;
+		ArrayList<Person> tenants = new ArrayList<Person>();
+		System.out.println("---------------- Tenants: ----------------");
+		while (n <= 10) {
+			Tenant tenant = new Tenant();
+			tenant.setRequestForApartment(Utils.randAB(5, 18) * 100,
+					Utils.getRandomBoolean()? Utils.randAB(8, 10) * 10:null,
+							Utils.getRandomBoolean()? Utils.randAB(8, 10) * 10:null,
+									Utils.getRandomBoolean()? Utils.randAB(8, 10) * 10:null
+					);
+			tenant.setName(faker.name().firstName());
+			tenant.setSurname(faker.name().lastName());
+			tenant.setBankAccount(new BankAccount(faker.finance().iban(), Utils.randAB(25, 75) * 100));
+			System.out.println("#" + n + " " + tenant);
+			System.out.println();
+			tenants.add(tenant);
+			n++;
+		}
 	}
 }

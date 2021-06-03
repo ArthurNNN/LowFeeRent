@@ -26,6 +26,11 @@ public class BankAccount {
 		this.amount = amount;
 	}
 
+	@Override
+	public String toString() {
+		return "\nBankAccount [iban=" + iban + ", amount=" + amount + "]";
+	}
+
 
 
 }

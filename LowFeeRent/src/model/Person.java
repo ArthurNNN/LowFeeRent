@@ -15,7 +15,7 @@ public class Person {
 
 	public Person(String name, String surname, BankAccount bankAccount) {
 		super();
-		this.id = "p" + Utils.generateId();
+		this.setId();
 		this.name = name;
 		this.surname = surname;
 		this.bankAccount = bankAccount;
@@ -23,6 +23,10 @@ public class Person {
 
 	public String getId() {
 		return id;
+	}
+	
+	public String setId() {
+		return this.id = "u" + Utils.generateId();
 	}
 
 	public BankAccount getBankAccount() {
@@ -51,7 +55,9 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return "Person [id=" + id + ", name=" + name + ", surname=" + surname + ", bankAccount=" + bankAccount + "]";
+		return "\nPerson [id=" + getId() + ", name=" + name + ", surname=" + surname + ", bankAccount:" + bankAccount + "]";
 	}
+
+
 
 }
