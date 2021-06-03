@@ -12,7 +12,7 @@ public class Utils {
 
 	}
 
-	public static int randAB(int min, int max) {
+	public static int randRange(int min, int max) {
 		return (int) ((Math.random() * (max - min)) + min);
 	}
 
