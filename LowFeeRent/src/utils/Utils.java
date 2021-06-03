@@ -8,7 +8,7 @@ public class Utils {
 
 	public static String generateId() {
 
-		return RandomStringUtils.randomNumeric(8);
+		return RandomStringUtils.randomNumeric(7);
 
 	}
 

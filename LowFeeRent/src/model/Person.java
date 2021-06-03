@@ -55,7 +55,7 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return "\nPerson [id=" + getId() + ", name=" + name + ", surname=" + surname + ", bankAccount:" + bankAccount + "]";
+		return "\nPerson [id=" + getId() + ", name=" + name + ", surname=" + surname + ", bankAccount" + bankAccount + "]";
 	}
 
 

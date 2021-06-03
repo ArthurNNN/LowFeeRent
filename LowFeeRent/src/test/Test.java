@@ -1,6 +1,8 @@
 package test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+
 import com.github.javafaker.Faker;
 
 import model.Apartment;
@@ -8,6 +10,7 @@ import model.BankAccount;
 import model.Person;
 import model.Request;
 import model.Tenant;
+import repository.AppDB;
 import utils.Utils;
 import model.Lessor;
 
@@ -23,6 +26,9 @@ public class Test {
 	}
 
 	private static void generateData() {
+		
+		AppDB db = new AppDB();
+		
 		Faker faker = new Faker();
 
 		ArrayList<Lessor> lessors = new ArrayList<Lessor>();
@@ -34,10 +40,15 @@ public class Test {
 			lessor.setName(faker.name().firstName());
 			lessor.setSurname(faker.name().lastName());
 			lessor.setBankAccount(new BankAccount(faker.finance().iban(), Utils.randAB(5, 55) * 100));
+			
+			//db.getApartments().put(lessor.getId(), lessor.getApartment());
+			
 			System.out.println("#" + n + " " + lessor);
 			System.out.println();
 			lessors.add(lessor);
 			n++;
+			
+			
 		}
 
 		n = 1;
