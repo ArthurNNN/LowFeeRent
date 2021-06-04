@@ -1,10 +1,13 @@
 package model;
 
 import utils.Utils;
+import java.time.LocalDate;
+import java.util.HashMap;
 
 public class Apartment {
 	String id;
 	String personId;
+	HashMap<LocalDate, LocalDate> openDates;
 	int price;
 	int area;
 	int rooms;
@@ -13,11 +16,14 @@ public class Apartment {
 
 	public Apartment() {
 		super();
+		this.setId();
+		this.openDates = new HashMap<LocalDate, LocalDate>();
 	}
 
-	public Apartment(int price, int area, int rooms, int bathrooms, String address) {
+	public Apartment(int price, int area, int rooms, int bathrooms,
+			String address) {
 		super();
-		this.id = "a" + Utils.generateId();
+		this.setId();
 		this.price = price;
 		this.area = area;
 		this.rooms = rooms;
@@ -29,16 +35,34 @@ public class Apartment {
 		return id;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setId() {
+		this.id = "a" + Utils.generateId();
+
 	}
 
 	public String getPersonId() {
+
 		return personId;
 	}
 
 	public void setPersonId(String personId) {
 		this.personId = personId;
+	}
+
+	public HashMap<LocalDate, LocalDate> getDates() {
+		return openDates;
+	}
+
+	public void setDates(HashMap<LocalDate, LocalDate> dates) {
+		this.openDates = dates;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public int getPrice() {
@@ -73,10 +97,24 @@ public class Apartment {
 		this.bathrooms = bathrooms;
 	}
 
+	public HashMap<LocalDate, LocalDate> getOpenDates() {
+		return openDates;
+	}
+
+	public void setOpenDates(HashMap<LocalDate, LocalDate> openDates) {
+		this.openDates = openDates;
+	}
+
 	@Override
 	public String toString() {
-		return "Apartment [id=" + id + ", personId=" + personId + ", price=" + price + ", area=" + area + ", rooms="
-				+ rooms + ", bathrooms=" + bathrooms + ", address=" + address + "]";
+		return "Apartment [id=" + id + ", personId=" + personId + ", openDates=" + openDates + ", price=" + price
+				+ ", area=" + area + ", rooms=" + rooms + ", bathrooms=" + bathrooms + ", address=" + address + "]";
 	}
+
+//	@Override
+//	public String toString() {
+//		return "Apartment [id=" + id + ", personId=" + personId + ", price=" + price + ", area=" + area + ", rooms="
+//				+ rooms + ", bathrooms=" + bathrooms + ", address=" + address + "]";
+//	}
 
 }

@@ -1,10 +1,15 @@
 package model;
 
+import java.time.LocalDate;
+//import java.util.Date;
+
 import utils.Utils;
 
 public class Request {
 	String id;
 	String personId;
+	LocalDate checkin;
+	LocalDate checkout;
 	int priceMax;
 	Integer areaMin;
 	Integer roomsMin;
@@ -12,11 +17,15 @@ public class Request {
 
 	public Request() {
 		super();
+		this.setId();
 	}
 
-	public Request(int priceMax, Integer areaMin, Integer roomsMin, Integer bathroomsMin) {
+	public Request(LocalDate checkin, LocalDate checkout, int priceMax, Integer areaMin, Integer roomsMin,
+			Integer bathroomsMin) {
 		super();
-		this.id = "r" + Utils.generateId();
+		this.setId();
+		this.checkin = checkin;
+		this.checkout = checkout;
 		this.priceMax = priceMax;
 		this.areaMin = areaMin;
 		this.roomsMin = roomsMin;
@@ -28,8 +37,8 @@ public class Request {
 		return id;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setId() {
+		this.id = "r" + Utils.generateId();
 	}
 
 	public String getPersonId() {
@@ -38,6 +47,22 @@ public class Request {
 
 	public void setPersonId(String personId) {
 		this.personId = personId;
+	}
+
+	public LocalDate getCheckin() {
+		return checkin;
+	}
+
+	public void setCheckin(LocalDate checkin) {
+		this.checkin = checkin;
+	}
+
+	public LocalDate getCheckout() {
+		return checkout;
+	}
+
+	public void setCheckout(LocalDate checkout) {
+		this.checkout = checkout;
 	}
 
 	public int getPriceMax() {
@@ -74,8 +99,9 @@ public class Request {
 
 	@Override
 	public String toString() {
-		return "Request [id=" + id + ", priceMax=" + priceMax + ", areaMin=" + areaMin + ", roomsMin=" + roomsMin
-				+ ", bathroomsMin=" + bathroomsMin + "]";
+		return "Request [id=" + id + ", personId=" + personId + ", checkin=" + checkin + ", checkout=" + checkout
+				+ ", priceMax=" + priceMax + ", areaMin=" + areaMin + ", roomsMin=" + roomsMin + ", bathroomsMin="
+				+ bathroomsMin + "]";
 	}
 
 }

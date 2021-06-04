@@ -28,7 +28,7 @@ public class BankAccount {
 
 	@Override
 	public String toString() {
-		return "\nBankAccount [iban=" + iban + ", amount=" + amount + "]";
+		return "BankAccount [iban=" + iban + ", amount=" + amount + "]";
 	}
 
 
