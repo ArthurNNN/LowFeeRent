@@ -12,12 +12,6 @@ public class Test {
 
 		System.out.println("Welcome to LowFeeRent!\n");
 
-		generateData();
-
-	}
-
-	private static void generateData() {
-
 		AppDB db = new AppDB();
 		Faker faker = new Faker();
 
@@ -48,9 +42,9 @@ public class Test {
 			tenant.setSurname(faker.name().lastName());
 			tenant.setBankAccount(new BankAccount(faker.finance().iban(), Utils.randRange(25, 75) * 100));
 			Request request = new Request(Utils.randRange(5, 18) * 100,
-					Utils.getRandomBoolean() ? Utils.randRange(8, 10) * 10 : null,
-					Utils.getRandomBoolean() ? Utils.randRange(1, 5) : null,
-					Utils.getRandomBoolean() ? Utils.randRange(1, 3) : null);
+					Utils.getRandomBoolean() ? Utils.randRange(8, 10) * 10 : 0,
+					Utils.getRandomBoolean() ? Utils.randRange(1, 5) : 0,
+					Utils.getRandomBoolean() ? Utils.randRange(1, 3) : 0);
 			request.setPersonId(tenant.getId());
 			tenant.setRequestId(request.getId());
 			db.getTenants().put(tenant.getId(), tenant);
@@ -58,6 +52,26 @@ public class Test {
 			System.out.println("\n#" + n + " " + tenant);
 			System.out.println(request);
 			n++;
+		}
+
+		n = 1;
+		System.out.println("---------------- Matching Apartments & Requests: ----------------");
+		for (String keyReq : db.getRequests().keySet()) {
+			Request request = db.getRequests().get(keyReq);
+
+			for (String keyApt : db.getApartments().keySet()) {
+				Apartment apartment = db.getApartments().get(keyApt);
+
+				if (apartment.getPrice() <= request.getPriceMax() && apartment.getArea() >= request.getAreaMin()
+						&& apartment.getRooms() >= request.getRoomsMin()
+						&& apartment.getBathrooms() >= request.getBathroomsMin()) {
+					System.out.println(
+							"\n#" + n + " Match Request " + request.getId() + " & Apartment " + apartment.getId());
+					System.out.println(request);
+					System.out.println(apartment);
+					n++;
+				}
+			}
 		}
 	}
 }

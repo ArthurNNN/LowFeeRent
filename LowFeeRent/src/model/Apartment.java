@@ -41,6 +41,38 @@ public class Apartment {
 		this.personId = personId;
 	}
 
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public int getArea() {
+		return area;
+	}
+
+	public void setArea(int area) {
+		this.area = area;
+	}
+
+	public int getRooms() {
+		return rooms;
+	}
+
+	public void setRooms(int rooms) {
+		this.rooms = rooms;
+	}
+
+	public int getBathrooms() {
+		return bathrooms;
+	}
+
+	public void setBathrooms(int bathrooms) {
+		this.bathrooms = bathrooms;
+	}
+
 	@Override
 	public String toString() {
 		return "Apartment [id=" + id + ", personId=" + personId + ", price=" + price + ", area=" + area + ", rooms="

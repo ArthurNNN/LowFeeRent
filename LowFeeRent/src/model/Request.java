@@ -10,7 +10,6 @@ public class Request {
 	Integer roomsMin;
 	Integer bathroomsMin;
 
-
 	public Request() {
 		super();
 	}
@@ -24,7 +23,7 @@ public class Request {
 		this.bathroomsMin = bathroomsMin;
 
 	}
-	
+
 	public String getId() {
 		return id;
 	}
@@ -32,13 +31,45 @@ public class Request {
 	public void setId(String id) {
 		this.id = id;
 	}
-	
+
 	public String getPersonId() {
 		return personId;
 	}
 
 	public void setPersonId(String personId) {
 		this.personId = personId;
+	}
+
+	public int getPriceMax() {
+		return priceMax;
+	}
+
+	public void setPriceMax(int priceMax) {
+		this.priceMax = priceMax;
+	}
+
+	public Integer getAreaMin() {
+		return areaMin;
+	}
+
+	public void setAreaMin(Integer areaMin) {
+		this.areaMin = areaMin;
+	}
+
+	public Integer getRoomsMin() {
+		return roomsMin;
+	}
+
+	public void setRoomsMin(Integer roomsMin) {
+		this.roomsMin = roomsMin;
+	}
+
+	public Integer getBathroomsMin() {
+		return bathroomsMin;
+	}
+
+	public void setBathroomsMin(Integer bathroomsMin) {
+		this.bathroomsMin = bathroomsMin;
 	}
 
 	@Override
