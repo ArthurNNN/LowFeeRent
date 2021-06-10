@@ -1,7 +1,13 @@
 package repository;
 
 import java.util.HashMap;
-import model.*;
+
+
+import model.Apartment;
+import model.Lessor;
+import model.Request;
+import model.Tenant;
+
 
 public class AppDB {
 	private HashMap<String, Lessor> lessors;
